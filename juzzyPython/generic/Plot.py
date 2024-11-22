@@ -3,16 +3,23 @@ Plot.py
 Created 21/12/2021
 """
 
-from juzzyPython.generic.Tuple import Tuple
-from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
-from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
-from juzzyPython.generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
-from juzzyPython.intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-from juzzyPython.generalType2zSlices.sets.GenT2MF_Trapezoidal import GenT2MF_Trapezoidal
-import numpy as np
-from mpl_toolkits.mplot3d import Axes3D  
-import matplotlib.pyplot as plt
 from typing import List
+
+import matplotlib.pyplot as plt
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import \
+    GenT2MF_Interface
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Trapezoidal import \
+    GenT2MF_Trapezoidal
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Triangular import \
+    GenT2MF_Triangular
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.intervalType2.sets.IntervalT2MF_Interface import \
+    IntervalT2MF_Interface
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
+
 plt.rcParams.update({'figure.max_open_warning': 0})
 
 class Plot:
@@ -51,9 +58,16 @@ class Plot:
         """Set the title of the current figure"""
         plt.title(title)
     
-    def legend(self):
-        """Add legend to the current figure"""
-        plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+    def legend(self, loc: str = 'center left', bbox_to_anchor: Tuple = (1, 0.5)):
+        """Add legend to the current figure
+        
+        Parameters:
+            loc: str
+                Location of the legend
+            bbox_to_anchor: Tuple
+                Location of the legend box
+        """
+        plt.legend(loc=loc, bbox_to_anchor=bbox_to_anchor)
         plt.tight_layout()
 
     def plotControlSurface(self,x: List[float],y: List[float],z: List[List[float]],xLabel: str,yLabel: str,zLabel: str) -> None:
