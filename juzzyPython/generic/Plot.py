@@ -4,6 +4,7 @@ Created 21/12/2021
 """
 
 from typing import List
+import typing
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -70,7 +71,7 @@ class Plot:
         plt.legend(loc=loc, bbox_to_anchor=bbox_to_anchor)
         plt.tight_layout()
 
-    def plotControlSurface(self,x: List[float],y: List[float],z: List[List[float]],xLabel: str,yLabel: str,zLabel: str, title: str = "Control Surface", zbound: Tuple[float, float] = None) -> None:
+    def plotControlSurface(self,x: List[float],y: List[float],z: List[List[float]],xLabel: str,yLabel: str,zLabel: str, title: str = "Control Surface", zbound: typing.Tuple[float, float] = None) -> None:
         """Plot a 3D surface showcasing the relationship between input (x,y) and output z"""
         fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
         
