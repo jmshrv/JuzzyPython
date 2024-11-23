@@ -3,8 +3,8 @@ Plot.py
 Created 21/12/2021
 """
 
-from typing import List
 import typing
+from typing import List
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -82,6 +82,7 @@ class Plot:
         ax.set_zlabel(zLabel)
         ax.set_zbound(zbound)
         plt.title(title)
+        fig.tight_layout()
     
     def plotMF2(self,xaxis: str,name: str,sets: IntervalT2MF_Interface,xDisc: int,addExtraEndPoints: bool) -> None:
         x = self.discretize(sets.getSupport(),xDisc)
