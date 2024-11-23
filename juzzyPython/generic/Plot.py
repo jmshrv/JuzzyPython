@@ -70,7 +70,7 @@ class Plot:
         plt.legend(loc=loc, bbox_to_anchor=bbox_to_anchor)
         plt.tight_layout()
 
-    def plotControlSurface(self,x: List[float],y: List[float],z: List[List[float]],xLabel: str,yLabel: str,zLabel: str) -> None:
+    def plotControlSurface(self,x: List[float],y: List[float],z: List[List[float]],xLabel: str,yLabel: str,zLabel: str, title: str = "Control Surface") -> None:
         """Plot a 3D surface showcasing the relationship between input (x,y) and output z"""
         fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
         
@@ -79,7 +79,7 @@ class Plot:
         ax.set_xlabel(xLabel)
         ax.set_ylabel(yLabel)
         ax.set_zlabel(zLabel)
-        plt.title("Control Surface")
+        plt.title(title)
     
     def plotMF2(self,xaxis: str,name: str,sets: IntervalT2MF_Interface,xDisc: int,addExtraEndPoints: bool) -> None:
         x = self.discretize(sets.getSupport(),xDisc)
