@@ -84,7 +84,7 @@ class Plot:
         plt.title(title)
         fig.tight_layout()
     
-    def plotMF2(self,xaxis: str,name: str,sets: IntervalT2MF_Interface,xDisc: int,addExtraEndPoints: bool) -> None:
+    def plotMF2(self,xaxis: str,name: str,sets: IntervalT2MF_Interface,xDisc: int,addExtraEndPoints: bool, color: str = None) -> None:
         x = self.discretize(sets.getSupport(),xDisc)
         y1 = [0] * xDisc
         y2 = [0] * xDisc
@@ -114,8 +114,6 @@ class Plot:
             x = x2
             y1 = y1b
             y2 = y2b
-        ax = plt.gca()
-        color = next(ax._get_lines.prop_cycler)['color']
         plt.plot(x,y1,label=name+"_upper", color = color)
         plt.plot(x,y2,label=name+"_lower", color = color, alpha=0.5)
         #plt.xlim(xAxisRange.getLeft(),xAxisRange.getRight())
